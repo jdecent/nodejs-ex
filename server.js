@@ -62,6 +62,12 @@ app.get('/test', function (req, res){
 
 });
 
+app.get('/test', function (req, res){
+
+	res.render('form.html');
+
+});
+
 app.route('/book')
   .get(function (req, res) {
     res.send('Get a random book')
