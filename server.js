@@ -62,7 +62,7 @@ app.get('/test', function (req, res){
 
 });
 
-app.get('/test', function (req, res){
+app.get('/form', function (req, res){
 
 	res.render('form.html');
 
