@@ -90,7 +90,7 @@ var initDb = function(callback) {
 //Routes
 app.get('/blog', (req, res) => {
 	vis.find({}, function(err, item) {
-		if (error) { console.error(error); }
+		if (err) { console.error(err); }
 		res.send(item);
     })
 });
