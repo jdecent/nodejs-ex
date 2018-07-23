@@ -16,11 +16,7 @@ const BlogPost = new Schema({
 },{collection: 'Posts'});
 
 const Post = mongoose.model('Post',BlogPost);
-var post = new Post({
-	title: 'TITLE',
-	body: 'asdfljasdflj'
-}
-post.save();
+
 
 //Mongoose END
     
@@ -79,8 +75,11 @@ var initDb = function(callback) {
 
 //Routes
 app.get('/blog', function (req, res){
-	Posts
-	
+	var post = new Post({
+	title: 'TITLE',
+	body: 'asdfljasdflj'
+	}
+	post.save();
 
 });
 
