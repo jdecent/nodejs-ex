@@ -23,14 +23,14 @@ const BlogPost = new Schema({
 	body: String
 },{collection: 'Posts'});
 
-const Post = mongoose.model('Post',BlogPost);
+const Post = mongoose.model('Post',BlogPost,'counts');
 */
-var visits = new Schema({
+const visits = new Schema({
     ip: String,
     date: Date
 });
 
-var vis = mongoose.model('visits',visits);
+const vis = mongoose.model('visits',visits,'counts');
 
 //Mongoose END
     
@@ -110,8 +110,11 @@ app.get('/blog', function (req, res){
 		res.send(count);
 	} )
 	*/
-	goose.collection('counts').find({}, function(err, item) {
-      res.send(item)
+	vis.find('counts',{}, function(err, item) {
+		if(err){
+			res.send('ERROR');
+		}
+		res.send(item)
     })
 });
 
