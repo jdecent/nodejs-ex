@@ -96,7 +96,7 @@ app.get('/blog', function (req, res){
 			message: 'Post saved successfully!'
 		})
 	})*/
-	vis.find({},function(err, count) { 
+	vis.find({}, 'ip date',function(err, count) { 
 		res.send(count);
 	} )
 	
