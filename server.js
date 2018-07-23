@@ -96,7 +96,7 @@ app.get('/blog', function (req, res){
 			message: 'Post saved successfully!'
 		})
 	})*/
-	User.count({},function(err, count) { 
+	vis.count({},function(err, count) { 
 		res.send(count);
 	} )
 	
