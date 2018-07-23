@@ -88,7 +88,7 @@ var initDb = function(callback) {
 };
 
 //Routes
-app.get('/blog', function (req, res){
+app.get('/blog', (req, res) => {
 	/*
 	var post = new Post({
 	title: 'TITLE',
