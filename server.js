@@ -2,7 +2,7 @@
 var express = require('express'),
     app     = express(),
     morgan  = require('morgan');
-
+/*
 //Mongoose BEGIN	
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://172.30.64.59:27017/sampledb');
@@ -17,7 +17,7 @@ const BlogPost = new Schema({
 
 const Post = mongoose.model('Post',BlogPost);
 
-
+*/
 //Mongoose END
     
 Object.assign=require('object-assign')
@@ -72,7 +72,7 @@ var initDb = function(callback) {
     console.log('Connected to MongoDB at: %s', mongoURL);
   });
 };
-
+/*
 //Routes
 app.get('/blog', function (req, res){
 	var post = new Post({
@@ -83,7 +83,7 @@ app.get('/blog', function (req, res){
 
 });
 
-
+*/
 
 
 app.get('/test', function (req, res){
