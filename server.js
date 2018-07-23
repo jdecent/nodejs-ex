@@ -25,7 +25,7 @@ const Post = mongoose.model('Post',BlogPost);
 var visits = new Schema({
     ip: String,
     date: Date
-}, {collection: 'counts'});
+});
 
 var vis = mongoose.model('visits',visits);
 
@@ -100,7 +100,7 @@ app.get('/blog', function (req, res){
 			message: 'Post saved successfully!'
 		})
 	})*/
-	vis.count({},function(err, count) { 
+	vis.find('counts',{},function(err, count) { 
 		if(err){
 			res.send('ERROR');
 		}
