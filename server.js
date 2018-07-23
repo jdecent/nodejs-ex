@@ -21,7 +21,7 @@ const Post = mongoose.model('Post',BlogPost);
 var visits = new Schema({
     ip: String,
     date: Date
-});
+}, {collection: 'counts'});
 
 var vis = mongoose.model('visits',visits);
 
