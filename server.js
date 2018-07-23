@@ -6,7 +6,11 @@ var express = require('express'),
 //Mongoose BEGIN	
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://172.30.64.59:27017/sampledb');
-
+var goose = mongoos.connection;
+goose.on("error", console.error.bind(console, "connection error"));
+goose.once("open", function(callback){
+  console.log("Connection Succeeded");
+});
 const Schema = mongoose.Schema;/*
 const ObjectId = Schema.ObjectId;
 
