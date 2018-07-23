@@ -5,12 +5,15 @@ var express = require('express'),
 
 //Mongoose BEGIN	
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://172.30.64.59:27017/sampledb');
-var goose = mongoose.connection;
-goose.on("error", console.error.bind(console, "connection error"));
-goose.once("open", function(callback){
-  console.log("Connection Succeeded");
+mongoose.connect('mongodb://172.30.64.59:27017/sampledb', function (err) {
+ 
+   if (err) throw err;
+ 
+   console.log('Mongoose:Successfully connected');
+ 
 });
+var goose = mongoose.connection;
+
 const Schema = mongoose.Schema;/*
 const ObjectId = Schema.ObjectId;
 
@@ -99,14 +102,17 @@ app.get('/blog', function (req, res){
 			success: true,
 			message: 'Post saved successfully!'
 		})
-	})*/
+	})
 	vis.find('counts',{},function(err, count) { 
 		if(err){
 			res.send('ERROR');
 		}
 		res.send(count);
 	} )
-	
+	*/
+	goose.collection('counts').find({}, function(err, item) {
+      res.send(item)
+    })
 });
 
 
