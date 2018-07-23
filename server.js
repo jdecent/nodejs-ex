@@ -79,7 +79,7 @@ app.get('/blog', function (req, res){
 	title: 'TITLE',
 	body: 'asdfljasdflj'
 	})
-	new_post.save(function (error) {
+	post.save(function (error) {
 		if (error) {
 			console.log(error)
 		}
