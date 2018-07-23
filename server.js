@@ -96,7 +96,7 @@ app.get('/blog', function (req, res){
 			message: 'Post saved successfully!'
 		})
 	})*/
-	vis.count({},function(err, count) { 
+	vis.count({ip: '10.131.174.1'},function(err, count) { 
 		res.send(count);
 	} )
 	
