@@ -89,32 +89,9 @@ var initDb = function(callback) {
 
 //Routes
 app.get('/blog', (req, res) => {
-	/*
-	var post = new Post({
-	title: 'TITLE',
-	body: 'asdfljasdflj'
-	})
-	post.save(function (error) {
-		if (error) {
-			console.log(error)
-		}
-		res.send({
-			success: true,
-			message: 'Post saved successfully!'
-		})
-	})
-	vis.find('counts',{},function(err, count) { 
-		if(err){
-			res.send('ERROR');
-		}
-		res.send(count);
-	} )
-	*/
 	vis.find({}, function(err, item) {
 		if (error) { console.error(error); }
-		res.send({
-			item
-		})
+		res.send(item);
     })
 });
 
