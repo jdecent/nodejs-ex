@@ -6,7 +6,7 @@ var express = require('express'),
 //Mongoose BEGIN	
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://172.30.64.59:27017/sampledb');
-
+/*
 const Schema = mongoose.Schema;
 const ObjectId = Schema.ObjectId;
 
@@ -17,7 +17,13 @@ const BlogPost = new Schema({
 },{collection: 'Posts'});
 
 const Post = mongoose.model('Post',BlogPost);
+*/
+var visits = new Schema({
+    ip: String,
+    date: Integer
+}, {collection: 'counts'});
 
+var vis = mongoose.model('visits',visits);
 
 //Mongoose END
     
@@ -76,6 +82,7 @@ var initDb = function(callback) {
 
 //Routes
 app.get('/blog', function (req, res){
+	/*
 	var post = new Post({
 	title: 'TITLE',
 	body: 'asdfljasdflj'
@@ -88,7 +95,11 @@ app.get('/blog', function (req, res){
 			success: true,
 			message: 'Post saved successfully!'
 		})
-	})
+	})*/
+	User.count({},function(err, count) { 
+		res.send(count);
+	} )
+	
 });
 
 
