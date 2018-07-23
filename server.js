@@ -72,18 +72,25 @@ var initDb = function(callback) {
     console.log('Connected to MongoDB at: %s', mongoURL);
   });
 };
-/*
+
 //Routes
 app.get('/blog', function (req, res){
 	var post = new Post({
 	title: 'TITLE',
 	body: 'asdfljasdflj'
 	}
-	post.save();
-
+	new_post.save(function (error) {
+		if (error) {
+			console.log(error)
+		}
+		res.send({
+			success: true,
+			message: 'Post saved successfully!'
+		})
+	})
 });
 
-*/
+
 
 
 app.get('/test', function (req, res){
