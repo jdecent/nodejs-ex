@@ -11,8 +11,9 @@ const Schema = mongoose.Schema;
 const ObjectId = Schema.ObjectId;
 
 const BlogPost = new Schema({
-  title: String,
-  body: String
+	_id: ObjectId,
+	title: String,
+	body: String
 },{collection: 'Posts'});
 
 const Post = mongoose.model('Post',BlogPost);
