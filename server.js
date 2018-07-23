@@ -6,8 +6,8 @@ var express = require('express'),
 //Mongoose BEGIN	
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://172.30.64.59:27017/sampledb');
-/*
-const Schema = mongoose.Schema;
+
+const Schema = mongoose.Schema;/*
 const ObjectId = Schema.ObjectId;
 
 const BlogPost = new Schema({
