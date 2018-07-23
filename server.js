@@ -6,13 +6,13 @@ var express = require('express'),
 //Mongoose BEGIN	
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://172.30.64.59:27017/sampledb', function (err) {
- 
-   if (err) throw err;
- 
-   console.log('Mongoose:Successfully connected');
- 
+mongoose.Promise = global.Promise;
+var mong = mongoose.connection;
+mong.on('error', console.error.bind(console, 'connection error:'));
+mong.once('open', function() {
+  // we're connected!
+  console.log('Mongoose Connected!')
 });
-var goose = mongoose.connection;
 
 const Schema = mongoose.Schema;/*
 const ObjectId = Schema.ObjectId;
@@ -27,10 +27,10 @@ const Post = mongoose.model('Post',BlogPost,'counts');
 */
 const visits = new Schema({
     ip: String,
-    date: Date
+    date: Number
 });
 
-const vis = mongoose.model('visits',visits,'counts');
+const vis = mongoose.model('Count',visits);
 
 //Mongoose END
     
@@ -110,11 +110,11 @@ app.get('/blog', function (req, res){
 		res.send(count);
 	} )
 	*/
-	vis.find('counts',{}, function(err, item) {
-		if(err){
-			res.send('ERROR');
-		}
-		res.send(item)
+	vis.find({}, function(err, item) {
+		if (error) { console.error(error); }
+		res.send({
+			item
+		})
     })
 });
 
