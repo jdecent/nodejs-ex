@@ -2,6 +2,27 @@
 var express = require('express'),
     app     = express(),
     morgan  = require('morgan');
+
+//Mongoose BEGIN	
+const mongoose = require('mongoose');
+mongoose.connect('mongodb://172.30.64.59:27017/sampledb');
+
+const Schema = mongoose.Schema;
+const ObjectId = Schema.ObjectId;
+
+const BlogPost = new Schema({
+  title: String,
+  body: String
+},{collection: 'Posts'});
+
+const Post = mongoose.model('Post',BlogPost);
+var post = new Post({
+	title: 'TITLE',
+	body: 'asdfljasdflj'
+}
+post.save();
+
+//Mongoose END
     
 Object.assign=require('object-assign')
 
@@ -55,6 +76,16 @@ var initDb = function(callback) {
     console.log('Connected to MongoDB at: %s', mongoURL);
   });
 };
+
+//Routes
+app.get('/blog', function (req, res){
+	Posts
+	
+
+});
+
+
+
 
 app.get('/test', function (req, res){
 
