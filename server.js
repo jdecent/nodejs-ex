@@ -5,7 +5,7 @@ var express = require('express'),
 
 //Mongoose BEGIN	
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://172.30.64.59:27017/sampledb');
+mongoose.connect('mongodb://userRJO:c4iQntjVl1cbCCFc@172.30.64.59:27017/sampledb');
 mongoose.Promise = global.Promise;
 var mong = mongoose.connection;
 mong.on('error', console.error.bind(console, 'connection error:'));
